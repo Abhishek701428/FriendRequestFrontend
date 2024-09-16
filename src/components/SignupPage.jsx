@@ -11,7 +11,7 @@ const SignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://friendrequestassigbackend.onrender.com/api/signup', { username, password });
+      await axios.post('https://friendrequestassigbackend-1.onrender.com/api/signup', { username, password });
       alert('Signup successful! You can now log in.');
       navigate('/login'); // Redirect to login page
     } catch (err) {

@@ -11,7 +11,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://friendrequestassigbackend.onrender.com/api/login', { username, password });
+      const res = await axios.post('https://friendrequestassigbackend-1.onrender.com/api/login', { username, password });
       localStorage.setItem('token', res.data.token);
       navigate('/home'); // Redirect to homepage after login
     } catch (err) {

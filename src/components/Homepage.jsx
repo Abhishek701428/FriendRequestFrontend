@@ -30,7 +30,7 @@ const HomePage = () => {
     const fetchUsersAndFriends = async () => {
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get('https://friendrequestassigbackend.onrender.com/api/users', { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get('https://friendrequestassigbackend-1.onrender.com/api/users', { headers: { Authorization: `Bearer ${token}` } });
         setUsers(res.data.users);
         setFriends(res.data.friends);
         setFriendRequests(res.data.friendRequests);
@@ -50,7 +50,7 @@ const HomePage = () => {
 
     try {
       const response = await axios.post(
-        `https://friendrequestassigbackend.onrender.com/api/friends/${targetUserId}`, 
+        `https://friendrequestassigbackend-1.onrender.com/api/friends/${targetUserId}`, 
         {}, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -63,7 +63,7 @@ const HomePage = () => {
   const acceptFriendRequest = async (requestId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.post(`https://friendrequestassigbackend.onrender.com/api/friends/accept/${requestId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(`https://friendrequestassigbackend-1.onrender.com/api/friends/accept/${requestId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
       alert('Friend request accepted!');
       setFriendRequests(friendRequests.filter(request => request._id !== requestId));
     } catch (err) {
@@ -74,7 +74,7 @@ const HomePage = () => {
   const rejectFriendRequest = async (requestId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.post(`https://friendrequestassigbackend.onrender.com/api/friends/reject/${requestId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(`https://friendrequestassigbackend-1.onrender.com/api/friends/reject/${requestId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
       alert('Friend request rejected!');
       setFriendRequests(friendRequests.filter(request => request._id !== requestId));
     } catch (err) {
